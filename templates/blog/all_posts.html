@@ -1,0 +1,47 @@
+<div class="blog-card-group" >
+    <div class="blog-main-container" id="post-container">
+        <h2 id="H2-Text" class="h2">Blog Post</h2>
+    <!-- Content -->
+    {% for posts in post %}
+        <div class="blog-card{% if forloop.first %} blog-card-first{% endif %}">
+            <div class="blog-card-banner">
+                <div class="blur-load-main" style="background-image:url({{posts.main_small_photo}});">
+                    <img src="{{ posts.main_photo }}" alt="{{ posts.title }}"
+                    {% if forloop.first %}
+                        width="700" height="350"
+                    {% else %}
+                        width="250" height="190"
+                    {% endif %}
+                    data-post-slug="{{ posts.slug }}"
+                    class="blog-banner-img post-image-link blurry-load">
+                </div>
+                
+            </div>
+            <div class="blog-content-wrapper">
+                <h3><a href="/post/{{ posts.slug }}" class="h3 post-title-link" data-post-slug="{{ posts.slug }}">{{ posts.title }}</a></h3>
+                <div class="wrapper-flex">
+                    <div class="wrapper">
+                        <p class="text-sm">
+                            <b>
+                            {{ posts.date_posted|date:"M j, Y" }}
+                            <span class="separator">•</span>
+                            {% if posts.reading_category == 'quick-read' %}
+                            <span style="color:#10b981;"><i class="fa-solid fa-bolt"></i> Quick Read</span>
+                            {% elif posts.reading_category == 'coffee-read' %}
+                            <span style="color: #60a5fa;"><i class="fa-solid fa-mug-hot"></i> Coffee Read</span>
+                            {% endif %}
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <p class="blog-text">
+                    {{ posts.mini_description }}
+                </p>
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+<button class="btn load-more" id="load-more" onclick="LoadMoreBtn()" >Load More</button>
+<p id="no-more-post" class="no-more-post-text" style="display:none;">No more posts.</p>

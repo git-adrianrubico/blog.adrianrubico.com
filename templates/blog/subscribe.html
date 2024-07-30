@@ -1,0 +1,21 @@
+<div class="subscribe">
+    <div class="subscribe-container">
+        <div class="subscribe-maintext">
+            <h2 class="subs-First-text">For the passion of automated cloud solutions.</h2>
+            <p class="subs-Second-text">Subscribe to get the latest posts. I mostly write about Backend (Python/Bash), DevOps and Linux.</p>
+        </div>
+        <div class="subscribe-form">
+            <form id="subsribe-form" method="post" class="subsribe-form">
+                {% csrf_token %}
+                <div class="input-button-wrapper">
+                    {{ subscribe_form.email }}
+                    <button type="submit" id="recaptcha-submit" class="subscribe-button" data-subscribe-url="{% url 'blog:subscribe' %}" disabled>Subscribe</button>
+                </div>
+                <div id="subscribe-message" class="subscribe-message"></div>
+                <div id="captcha-field" class="captcha-field" style="display: flex; justify-content: center;">
+                    {{ subscribe_form.captcha }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

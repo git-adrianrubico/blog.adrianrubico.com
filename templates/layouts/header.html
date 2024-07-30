@@ -1,0 +1,91 @@
+{% load static %}
+<header>
+  <div class="header-container">
+    <div class="wrapper1">
+      <nav>
+        <div class="for-filter">
+          <div class="btn-group">
+            <button class="nav-menu-btn">
+              <ion-icon name="menu-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="content">
+            <div class="logo">
+              <a href="{% url 'blog:home' %}" class="header-logo-container" id="logo-link" >
+                <span>
+                  <img src="{% static 'assets/images/DevBlog_AR.png' %}" alt="Devblog's logo" width="40" height="40">
+                </span>
+                <span class="logo-text">
+                  <h1>Adrian Rubico</h1>
+                </span>
+              </a>
+            </div>
+            <div class="flex-wrapper">
+              <ul class="desktop-nav">
+                <li>
+                  <a href="/" class="nav-link posts-header-desktopview" id="posts-dv-link" data-home-url="{% url 'blog:home' %}">Posts</a>
+                </li>
+                <li>
+                  {% if basic_info %}
+                    {% for basic_infos in basic_info %}
+                      <a href="{{ basic_infos.my_website }}" target="_blank" class="nav-link">About Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    {% endfor %}
+                  {% else %}
+                    <a href="" target="_blank" class="nav-link" id="about_me_link">About Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  {% endif %}
+                </li>
+                <li>
+                  <span class="postdetail-separator-line">|</span>
+                </li>
+              </ul>
+              <li>
+                <button class="rss-feed" title="RSS Feed" onclick="window.open('{% url 'blog:latest_rss_feed' %}', '_blank')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss" data-v-03d6bbcb=""><path d="M4 11a9 9 0 0 1 9 9" data-v-03d6bbcb=""></path><path d="M4 4a16 16 0 0 1 16 16" data-v-03d6bbcb=""></path><circle cx="5" cy="19" r="1" data-v-03d6bbcb=""></circle></svg>
+                </button>
+              </li>
+              <button class="theme-btn theme-btn-desktop light">
+                <ion-icon name="moon" class="moon"></ion-icon>
+                <ion-icon name="sunny" class="sun"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-nav">
+          <button class="nav-close-btn">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <div class="wrapper">
+            <p class="h3 nav-title">Main Menu</p>
+            <ul>
+              <li class="nav-item">
+                <a href="/" class="nav-link posts-header-mobileview" id="posts-mv-link" data-home-url="{% url 'blog:home' %}">Posts</a>
+              </li>
+              <li class="nav-item">
+                {% if basic_info %}
+                  {% for basic_infos in basic_info %}
+                    <a href="{{ basic_infos.my_website }}" target="_blank" class="nav-link">About Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  {% endfor %}
+              {% else %}
+                  <a href="" target="_blank" class="nav-link" id="about_me_link">About Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              {% endif %}
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:latest_rss_feed' %}" target="_blank">RSS Feed</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="h3 nav-title">Settings</p>
+            <ul>
+              <button class="theme-btn theme-btn-desktop light">
+                <ion-icon name="moon" class="moon"></ion-icon>
+                <ion-icon name="sunny" class="sun"></ion-icon>
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

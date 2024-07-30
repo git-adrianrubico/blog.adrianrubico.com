@@ -1,0 +1,31 @@
+{% load static %}
+{% with post=post_detail %}
+    <div class="postdetail-head-container">
+        <h1 class="postdetail-title">{{ post.title }}</h1>
+        <div class="postdetail-subinfo">
+            <div class="postdetail-subinfo-left">
+                <p class="postdetail-author">Adrian Rubico</p>
+                <span class="postdetail-separator-line">|</span>
+                <div class="postdetail-date-time">
+                    <p>{{ post.date_posted|date:"M j, Y" }}</p>
+                    <span class="postdetail-separator-circle">•</span>
+                    <p>{{ post_time }} GMT+8</p>
+                </div>
+            </div>
+            <div class="postdetail-subinfo-right">
+                <button class="share-button" title="Share Post" onclick="openModal()">
+                    <div class="share-button-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{ post.content|safe }}
+{% include 'blog/share_button.html' %}
+{% endwith %}
+{% include 'blog/subscribe.html' %}

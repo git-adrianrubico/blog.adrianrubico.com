@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+  <div class="errorpage-container container">
+    <h1>Page Not Found</h1>
+    <br>
+    <p>The requested page could not be found.</p>
+    <button class="errorpage-gohome-btn" onclick="window.open('{% url 'blog:home' %}')">Go Home</button>
+    
+  </div>
+{% endblock content %}

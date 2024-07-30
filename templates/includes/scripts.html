@@ -1,0 +1,97 @@
+{% load static %}
+<script defer src="{% static 'assets/js/script.js' %}"></script>
+<script defer src="{% static 'assets/js/main_func.js' %}"></script>
+<script defer src="{% static 'assets/js/other_func.js' %}"></script>
+
+<!-- Jquery Script -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Medium-zoom Script link -->
+<script src="https://unpkg.com/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+
+<!-- ionicon link -->
+<script defer type="module" src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+<script defer nomodule="" src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"></script>
+
+<!-- Infinite Scroll Script -->
+<script defer src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+<!-- Highlight JS -->
+<script src="{% static 'assets/js/highlight.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="{% static 'assets/js/highlightjs-copy.min.js' %}"></script>
+<script>
+  hljs.highlightAll();
+  hljs.addPlugin(new CopyButtonPlugin());
+</script>
+
+<script src="{% static 'assets/js/nprogress.min.js' %}"></script>
+
+
+<script>NProgress.configure({ showSpinner: false, speed: 500 });</script>
+
+<!-- Back to Top Button -->
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+    });
+
+    btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '100');
+    });
+</script>
+
+<script>
+  function openModal() {
+    const postUrlInput = document.getElementById("postUrl");
+    const modal = document.getElementById('modal');
+    modal.classList.add('fade-in');
+    postUrlInput.value = window.location.href;
+    setTimeout(() => {
+        modal.querySelector('.modal-container').classList.add('scale-up');
+    }, 10); 
+}
+
+function closeModal() {
+    const modalContent = document.querySelector('.modal-container');
+    modalContent.classList.remove('scale-up');
+    setTimeout(() => {
+        const modal = document.getElementById('modal');
+        modal.classList.remove('fade-in');
+    }, 400);
+}
+
+function outsideClick(event) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.querySelector('.modal-container');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+function copyUrl() {
+    var copyText = document.getElementById("postUrl");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand("copy");
+
+    // Change the icon to check mark
+    const copyIcon = document.getElementById("copyIcon");
+    const checkIcon = document.getElementById("checkIcon");
+    copyIcon.style.display = "none";
+    checkIcon.style.display = "inline";
+
+    // Revert back to the copy icon after 3 seconds
+    setTimeout(() => {
+        copyIcon.style.display = "inline";
+        checkIcon.style.display = "none";
+    }, 3000);
+}
+</script>

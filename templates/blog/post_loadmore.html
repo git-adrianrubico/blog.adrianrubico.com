@@ -1,0 +1,36 @@
+{% for post_loadmore in post_loadmore %}
+<div class="blog-card">
+    <div class="blog-card-banner">
+        <div class="blur-load-main" style="background-image:url({{posts.main_small_photo}});">
+            <img src="{{ post_loadmore.main_photo.url }}" alt="{{ post_loadmore.title }}"
+            width="250" height="190"
+            data-post-slug="{{ post_loadmore.slug }}"
+            class="blog-banner-img post-image-link blurry-load">
+        </div>
+        
+    </div>
+    <div class="blog-content-wrapper">
+        <h3><a href="/post/{{ post_loadmore.slug }}" class="h3 post-title-link" data-post-slug="{{ post_loadmore.slug }}">{{ post_loadmore.title }}</a></h3>
+        <div class="wrapper-flex">
+            <div class="wrapper">
+                <p class="text-sm">
+                    <b>
+                    {{ post_loadmore.date_post_loadmoreed|date:"M j, Y" }}
+                    <span class="separator">•</span>
+                    {% if post_loadmore.reading_category == 'quick-read' %}
+                    <span style="color:#10b981;"><i class="fa-solid fa-bolt"></i> Quick Read</span>
+                    {% elif post_loadmore.reading_category == 'coffee-read' %}
+                    <span style="color: #60a5fa;"><i class="fa-solid fa-mug-hot"></i> Coffee Read</span>
+                    {% endif %}
+                    </b>
+                </p>
+            </div>
+        </div>
+        <p class="blog-text">
+            {{ post_loadmore.mini_description }}
+        </p>
+    
+    </div>
+    
+</div>
+{% endfor %}

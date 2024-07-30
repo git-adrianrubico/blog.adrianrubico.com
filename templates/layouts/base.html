@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en-US">
+    <meta id="og-title" property="og:title" content="{{ og_title|default:'Adrian Rubico | Blog' }}" />
+    <meta id="og-description" property="og:description" content="{{ og_description|default:'Checkout my Blog, I mostly write about Backend (Python/Bash), DevOps and Linux.' }}" />
+    <meta id="og-image" property="og:image" content="{{ og_image|default:'https://bucket-adrianrubico28.s3.us-east-1.amazonaws.com/blog_app/assets/images/apple-touch-icon.ico' }}" />
+    <meta id="og-url" property="og:url" content="{{ og_url|default:'https://blog.adrianrubico.com/' }}" />
+
+    <meta property="og:site_name" content="Adrian Rubico | Blog"> 
+    <meta name="theme-color" content="">
+    <meta name="description" content="Checkout my Blog, I mostly write about Backend (Python/Bash), DevOps and Linux.">
+    <meta name="keywords" content="Adrian Rubico, Blog, DevBlog, cloud engineer, web development, Linux, DevOps, Automation, full-stack developer, Cybersecurity, security">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <meta name="google-site-verification" content="wTbvHGmHXUFjK9LHoSLY8Gw9GhrFUJbvV-DJ2BXQfmc">
+    {% block head %}{% endblock head %}
+    <!-- favicon -->
+    <link href="{% static 'assets/images/favicon.ico' %}" rel="icon"/>
+    <link href="{% static 'assets/images/apple-touch-icon.ico' %}" rel="apple-touch-icon" />
+    <!-- custom css link -->
+    
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- - google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/vs2015.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/nprogress.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/highlightjs-copy.min.css' %} ">
+    <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/medium-zoom@1.1.0/dist/style.css"/>
+    <style>  
+	  .hljs-ln-code {
+        padding-left: 10px !important;
+      }
+    </style>
+    <style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style>
+  </head>
+  <body class="light-theme">
+    <!-- #HEADER -->
+    {% include 'layouts/header.html' %}
+    <main>
+      <div class="main">
+        <!-- Back to top button -->
+        <a id="button" ></a>
+          <!-- BLOG SECTION-->
+          {% block content %}
+          {% endblock content %}
+      </div>
+    </main>
+
+    <!-- #FOOTER -->
+    {% include 'layouts/footer.html' %}
+    <!-- Overlay for dimming background -->
+    <div class="overlay"></div>
+    <!-- #SCRIPTS -->
+    {% include 'includes/scripts.html' %}
+  </body>
+</html>

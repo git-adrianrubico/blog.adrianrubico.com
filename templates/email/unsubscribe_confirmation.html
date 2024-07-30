@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load static %}
+    <div class="unsubscribe-container container">
+        <h1>Unsubscribe Confirmation</h1>
+        <p style="font-size: 20px;">Are you sure you want to unsubscribe {{ email }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button class="unsubscribe-btn" type="submit">Yes, unsubscribe me</button>
+        </form>
+    </div>
+{% endblock content %}
