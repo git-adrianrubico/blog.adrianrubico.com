@@ -24,8 +24,16 @@ This is my personal blog site, built with Django framework, Ajax, and Recaptcha.
   * [License](#License)
   * [Author](#author)
 
-## Deploy Locally
-If you want to try this 
+## Run Locally
+If you want to try this locally pull the docker image from this github repo registry
+
+```bash
+docker pull ghcr.io/git-adrianrubico/blog.adrianrubico.com:latest
+```
+Then run the docker
+```bash
+docker run -d -p 8000:8000 --name DjangoBlog ghcr.io/git-adrianrubico/blog.adrianrubico.com:latest
+```
 
 ## Installation
 #### 1. Clone the repository:
@@ -106,7 +114,10 @@ You can use this as reference if you like 😉
 ![image5](<AdminSite Screenshots/Posts.png>)
 
 ## Deployment
-In the deployment you may 
+In the deployment you could try using Render or Vercel.
+You may follow the instruction as my previous work
+- https://blog.adrianrubico.com/post/Create-Your-Own-Portfolio-Website-for-Free-Using-Django
+- https://github.com/git-adrianrubico/Django-Portfolio-Render
 
 ## Credits
 - Blog Template Design: https://github.com/deepjyoti30/blog.deepjyoti30.dev
