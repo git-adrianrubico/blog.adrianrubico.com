@@ -125,6 +125,7 @@ You may follow the instruction as my previous work
 - Simple Icons: https://cdn.simpleicons.org
 - Highlight JS: https://highlightjs.org
 - Medium Zoom: https://github.com/francoischalifour/medium-zoom
+- Project Challenging Task: https://roadmap.sh/projects/personal-blog
 
 ## License 
 This project is licensed under the [MIT License](LICENSE).
